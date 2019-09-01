@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col s12 m6">
+        <div class="card">
+            <div class="card-content">
+                <div class="input-field">
+                    <input type="text" id="filtro-nome" class="autocomplete" [(ngModel)]="filtroNome">
+                    <label for="filtro-nome">Pesquisar por NOME</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="filtro-CPF" class="autocomplete" [(ngModel)]="filtroCpf">
+                    <label for="filtro-CPF">Pesquisar por CPF</label>
+                </div>
+                <h6>Ordenar por:</h6>
+                <p>
+                    <label>
+                        <input (click)="orderByFilter('nome')" name="group1" type="radio" />
+                        <span>Nome</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input (click)="orderByFilter('cpf')" name="group1" type="radio" />
+                        <span>CPF</span>
+                    </label>
+                </p>
+            </div>
+        </div>
+        <a class="waves-effect waves-light btn col s12" routerLink="/home">Home</a><br>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 m6">
+        <div class="card"
+            *ngFor="let user of users | filterName: filtroNome | filterCpf: filtroCpf | order: orderBy:'asc'">
+            <div class="card-content">
+                <h6><b>Name:</b> {{user.nome}}</h6>
+                <h6><b>CPF:</b> {{user.cpf}}</h6>
+                <h6><b>E-mail:</b> {{user.email}}</h6>
+                <br>
+                <div class="card-action">
+                    <a (click)="editar(user)">EDITAR</a>
+                    <a (click)="excluir(user.id)">EXCLUIR</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

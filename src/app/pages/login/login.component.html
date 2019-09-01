@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col s12 m6">
+        <div class="card">
+            <div class="card-content">
+                <div class="input-field">
+                    <input id="email" type="email" class="validate" [(ngModel)]="login.email">
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="senhaLogin" class="autocomplete" [(ngModel)]="login.senha">
+                    <label for="senhaLogin">Senha</label>
+                </div>
+            </div>
+        </div>
+        <a class="waves-effect waves-light btn col s12" (click)="signInWithEmail()">Login</a><br>
+        <br>
+        <a class="waves-effect waves-light btn col s12" (click)="autoPreencherLogin()">Auto preencher login</a><br>
+    </div>
+</div>
