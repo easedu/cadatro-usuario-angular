@@ -13,7 +13,9 @@ export class ListarComponent implements OnInit {
 
   users: User[];
   orderBy: string;
-
+  filtroNome: string;
+  filtroCpf: string;
+  
   constructor(private authService: AuthService, private router: Router, private userService: UserService) { }
 
   ngOnInit() {
